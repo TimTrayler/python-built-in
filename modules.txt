@@ -247,3 +247,5 @@ nis
 syslog
 outparse
 imp
+ntpath
+posixpath
