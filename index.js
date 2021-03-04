@@ -16,7 +16,7 @@ function share() {
         }).then(() => {
             alert("Thanks for sharing!");
         }).catch(() => {
-            alert("Please try again!");
+            alert("Something went wrong! Maybe your browser doesn't support share...");
         });
     } else {
         document.getElementById("twitter-feedback").click();
