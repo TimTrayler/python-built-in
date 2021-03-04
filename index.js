@@ -32,7 +32,7 @@ function loadModules()
         }
     }
 
-    x.open("GET", "modules.txt");
+    x.open("GET", "modules");
     x.send();
 }
 
