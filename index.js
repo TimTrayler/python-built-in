@@ -8,27 +8,21 @@ if (!String.prototype.trim) {
     };
 }
 
+
 function loadModules() {
-    var x = new XMLHttpRequest();
-
-    x.onreadystatechange = function () {
-        const out = document.getElementById("output");
-
-        if (x.readyState == x.DONE) {
-            if (x.status > 199 && x.status < 300) {
-                x.responseText.split("\n").forEach(module => {
-                    modules.push(module.trim());
-                });
-            } else {
-                out.innerHTML = "An error occurred!";
-                out.setAttribute("error", "");
-                check = () => { };
-            }
+    return new Promise(async (resolve, reject) => {
+        const response = await fetch("modules");
+        
+        if (response.status > 199 && response.status < 300) {
+            (await response.text()).split("\n").forEach(module => {
+                modules.push(module.trim());
+            });
+        } else {
+            out.innerHTML = "An error occurred!";
+            out.setAttribute("error", "");
+            check = () => { };
         }
-    }
-
-    x.open("GET", "modules");
-    x.send();
+    });
 }
 
 loadModules();
