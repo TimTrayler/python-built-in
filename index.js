@@ -8,22 +8,6 @@ if (!String.prototype.trim) {
     };
 }
 
-
-function share() {
-    if (navigator.share) {
-        navigator.share({
-
-        }).then(() => {
-            alert("Thanks for sharing!");
-        }).catch(() => {
-            alert("Something went wrong! Maybe your browser doesn't support share...");
-        });
-    } else {
-        document.getElementById("twitter-feedback").click();
-    }
-}
-
-
 function loadModules() {
     var x = new XMLHttpRequest();
 
